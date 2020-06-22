@@ -6,16 +6,16 @@
 
 #include <FirebaseArduino.h>
 
-static const int RXPin = 12, TXPin = 13;
+static const int RXPin =12, TXPin = 13;
 static const uint32_t GPSBaud = 9600;
-#define WIFI_SSID "JioFi3'S"
-#define WIFI_PASSWORD "Satya@467"
+#define WIFI_SSID "1st FL_Left_Side"
+#define WIFI_PASSWORD "k12techno@2020"
 int year , month , date, hour , minute , second;
 String date_str , time_str;
 int pm;
 
-#define FIREBASE_HOST "driver-gps-aa25e.firebaseio.com"
-#define FIREBASE_AUTH "ujW92oubKKuwTkkcoE60QKb1qtS0BEyB0HsmtBq2"
+#define FIREBASE_HOST "drivergps-15933.firebaseio.com"
+#define FIREBASE_AUTH "R2DZoTXHKcVu5VCdMfvnz2LsuAZsFztcvvudZW8j"
 // The TinyGPS++ object
 TinyGPSPlus gps;
 
@@ -81,8 +81,8 @@ void displayInfo()
     Serial.println(lonbuf);
     delay(2000);
     
-  Firebase.pushString("Driver2/Location", latbuf);                                  //setup path and send readings
-  Firebase.pushString("Driver2/Location", lonbuf);                                //setup path and send readings
+  Firebase.setString("Driver2/Locationlat", latbuf);                                  //setup path and send readings
+  Firebase.setString("Driver2/Locationlong", lonbuf);                                //setup path and send readings
   Firebase.setString("Driver2/Time_stamp_date",date_str);
   delay(1000);
   Firebase.setString("Driver2/Time_stamp",time_str);
